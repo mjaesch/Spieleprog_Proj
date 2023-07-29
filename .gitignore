@@ -72,7 +72,7 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # changes by mjaesch
-/Assets
+/Assets/*
 !/Assets/Scripts
 !/Assets/Scenes3
 !/Assets/Scenes
