@@ -80,10 +80,14 @@ public class CarController : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// 1 : up a gear
+    /// 2 : down a gear
+    /// </summary>
+    /// <param name="gearChange"></param>
+    /// <returns></returns>
 
-    /* 1 : up a gear
-     * 2 : down a gear
-     */
+
     IEnumerator ChangeGear(int gearChange)
     {
         gearState = GearState.CheckingChange;
@@ -129,10 +133,12 @@ public class CarController : MonoBehaviour
         HandleSteering();
         UpdateWheels();
         CheckStuckOnRoof();
+
+
     }
-    /**
-     uses Diameter of the wheel collider to calc kmh and also the movement in each frame for kinetic speed
-     */
+    /// <summary>
+    /// uses Diameter of the wheel collider to calc kmh and also the movement in each frame for kinetic speed
+    /// </summary>
     private void CalcWheelKMH()
     {
         //Calc wheel speed
