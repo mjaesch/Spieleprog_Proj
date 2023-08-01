@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class GrapplingController : MonoBehaviour
 {
-    
+    [SerializeField] private CameraScript cameraScript;
     private LineRenderer lineRenderer;
     private Vector3 grapplePoint;
     public LayerMask whatIsGrappleable; 
@@ -53,7 +53,14 @@ public class GrapplingController : MonoBehaviour
     private void StartGrapple()
     {
         RaycastHit hit;
-        if (Physics.Raycast(cam.position, cam.forward, out hit, maxGrapDistance, whatIsGrappleable))
+        Debug.Log(" cam fwd " + cam.forward);
+        Debug.Log(" xhair pos " + cameraScript.getCrosshairOffset().normalized);
+        
+
+        Vector3 directionOfGrapple = cam.forward + cameraScript.getCrosshairOffset().normalized;
+        directionOfGrapple.Normalize();
+        Debug.Log(" both " + directionOfGrapple);
+        if (Physics.Raycast(cam.position, directionOfGrapple, out hit, maxGrapDistance, whatIsGrappleable))
         {
             grapplePoint = hit.point;
             joint = car.gameObject.AddComponent<SpringJoint>();

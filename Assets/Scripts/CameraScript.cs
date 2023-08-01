@@ -4,24 +4,24 @@ using UnityEngine.UI;
 
 public class CameraScript : MonoBehaviour
 {
-    public CinemachineVirtualCamera vCam;
-    public CinemachineComposer composer;
-    public float xMin = -1.5f;
-    public float xMax = 1.5f;
-    public float yMin = 1f;
-    public float yMax = 3f;
-    public float sensitivity = 1;
-
-    public Image crosshair;
-
-    public float crosshairMovementMultiplier = 20;
-
+    [SerializeField]private CinemachineVirtualCamera vCam;
+    [SerializeField]private CinemachineComposer composer;
+    [SerializeField]private float xMin = -1.5f;
+    [SerializeField]private float xMax = 1.5f;
+    [SerializeField]private float yMin = 1f;
+    [SerializeField]private float yMax = 3f;
+    [SerializeField]private float sensitivity = 1;
+    
+    [SerializeField]private Image crosshair;
+    
+    [SerializeField] private float crosshairMovementMultiplier = 20;
+    
     private Vector3 initialPos;
     private Vector3 newPos;
-    public float maxCrosshairX = 1f;
-    public float minCrosshairX = -1f;
-    public float maxCrosshairY = 1f;
-    public float minCrosshairY = -1f;
+    [SerializeField]private float maxCrosshairX = 1f;
+    [SerializeField]private float minCrosshairX = -1f;
+    [SerializeField]private float maxCrosshairY = 1f;
+    [SerializeField]private float minCrosshairY = -1f;
 
     // Start is called before the first frame update
     void Start()
@@ -95,5 +95,10 @@ public class CameraScript : MonoBehaviour
             newPos.y = minCrosshairY;
         }
         crosshair.rectTransform.position = newPos;
+    }
+
+    public Vector3 getCrosshairOffset()
+    {
+        return newPos-initialPos;
     }
 }
