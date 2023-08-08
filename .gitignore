@@ -78,3 +78,7 @@ crashlytics-build.properties
 !/Assets/Scenes
 !/Assets/Prefabs
 !/Assets/Small_things
+
+.vscode/
+.vsconfig
+EasyRoads3Dv3/

@@ -1,7 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
-public enum GearState
+public enum GearStateTim
 {
     Neutral,
     Running,
@@ -16,7 +16,8 @@ public enum ReverseState
     Forwards
 }*/
 
-public class CarController : MonoBehaviour
+
+public class CarControllerTim : MonoBehaviour
 {
     //Display
     [SerializeField] private TMP_Text rpmText;
@@ -63,6 +64,8 @@ public class CarController : MonoBehaviour
     [SerializeField] private Transform frontLeftWheelTransform, frontRightWheelTransform;
     [SerializeField] private Transform rearLeftWheelTransform, rearRightWheelTransform;
 
+    private Vector3 startPosition;
+
     //Check if the Car is on its Roof
     [SerializeField] private Transform carTransform;
     [SerializeField] private float kineticSpeed;
@@ -72,9 +75,7 @@ public class CarController : MonoBehaviour
     [SerializeField] private float CenterOfMassYOffset = -0.4f;
     [SerializeField] private float CenterOfMassZOffset = 0.4f;
 
-
     public LapManager lapManager;
-    private Vector3 startPosition;
 
     private void Start()
     {
@@ -84,14 +85,11 @@ public class CarController : MonoBehaviour
         startPosition = transform.position;
     }
 
-    /// <summary>
-    /// 1 : up a gear
-    /// 2 : down a gear
-    /// </summary>
-    /// <param name="gearChange"></param>
-    /// <returns></returns>
 
 
+    /* 1 : up a gear
+     * 2 : down a gear
+     */
     IEnumerator ChangeGear(int gearChange)
     {
         gearState = GearState.CheckingChange;
@@ -137,12 +135,10 @@ public class CarController : MonoBehaviour
         HandleSteering();
         UpdateWheels();
         CheckStuckOnRoof();
-
-
     }
-    /// <summary>
-    /// uses Diameter of the wheel collider to calc kmh and also the movement in each frame for kinetic speed
-    /// </summary>
+    /**
+     uses Diameter of the wheel collider to calc kmh and also the movement in each frame for kinetic speed
+     */
     private void CalcWheelKMH()
     {
         //Calc wheel speed
@@ -177,6 +173,7 @@ public class CarController : MonoBehaviour
                 clutch = 0;
             }
         }
+
     }
 
     private float CalculateTorque(float gasInput)
@@ -197,21 +194,21 @@ public class CarController : MonoBehaviour
                 StartCoroutine(ChangeGear(-1));
             }
         }
-        
-            if (clutch < 0.1f)
-            {
-                RPM = Mathf.Lerp(RPM, Mathf.Max(idleRPM, redline * gasInput) + Random.Range(-50, 50), Time.fixedDeltaTime);
-            }
-            else
-            {
-                wheelRPM = Mathf.Abs((rearRightWheelCollider.rpm + rearLeftWheelCollider.rpm) / 2f) * gearRatios[currentGear] * differentialRatio;
-                RPM = Mathf.Lerp(RPM, Mathf.Max(idleRPM - 100, wheelRPM), Time.fixedDeltaTime * 3f);
-                torque = (hpToRPMCurve.Evaluate(RPM / redline) * motorForce / RPM) * gearRatios[currentGear] * differentialRatio * 5252f * clutch;
-            }
-        
+
+        if (clutch < 0.1f)
+        {
+            RPM = Mathf.Lerp(RPM, Mathf.Max(idleRPM, redline * gasInput) + Random.Range(-50, 50), Time.fixedDeltaTime);
+        }
+        else
+        {
+            wheelRPM = Mathf.Abs((rearRightWheelCollider.rpm + rearLeftWheelCollider.rpm) / 2f) * gearRatios[currentGear] * differentialRatio;
+            RPM = Mathf.Lerp(RPM, Mathf.Max(idleRPM - 100, wheelRPM), Time.fixedDeltaTime * 3f);
+            torque = (hpToRPMCurve.Evaluate(RPM / redline) * motorForce / RPM) * gearRatios[currentGear] * differentialRatio * 5252f * clutch;
+        }
+
         return torque;
     }
-    
+
 
     private void HandleMovement()
     {
