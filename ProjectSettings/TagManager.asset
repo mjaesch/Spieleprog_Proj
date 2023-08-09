@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - chk
+  - PlayerCar
+  - AICarCollider
+  - Road
+  - Desert
+  - Car
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
@@ -11,9 +18,9 @@ TagManager:
   - 
   - Water
   - UI
-  - Obstacle
   - 
   - 
+  - Car
   - 
   - 
   - 
