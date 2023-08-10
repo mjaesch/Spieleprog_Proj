@@ -29,7 +29,6 @@ public class MoveAimTarget : MonoBehaviour
     public AxisState HorizontalAxis;
 
 
-
     private void OnValidate()
     {
         VerticalAxis.Validate();
@@ -45,10 +44,10 @@ public class MoveAimTarget : MonoBehaviour
         IgnoreTag = string.Empty;
         //hier noch hinkriegen das sich die kamera garnet bewegt
         // die minvalue und maxvalue einstellen
-        VerticalAxis = new AxisState(-10, 35, false, false, 10f, 0.1f, 0.1f, "Mouse Y", true);
-        VerticalAxis.m_SpeedMode = AxisState.SpeedMode.InputValueGain;
-        HorizontalAxis = new AxisState(-40, 40, true, false, 10f, 0.1f, 0.1f, "Mouse X", false);
-        HorizontalAxis.m_SpeedMode = AxisState.SpeedMode.InputValueGain;
+        VerticalAxis = new AxisState(-10, 35, false, false, 2, 0.1f, 0.1f, "Mouse Y", true);
+        VerticalAxis.m_SpeedMode = AxisState.SpeedMode.MaxSpeed;
+        HorizontalAxis = new AxisState(-40, 40, true, false, 2, 0.1f, 0.1f, "Mouse X", false);
+        HorizontalAxis.m_SpeedMode = AxisState.SpeedMode.MaxSpeed;
     }
 
     private void OnEnable()
