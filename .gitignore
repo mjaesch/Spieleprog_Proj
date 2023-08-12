@@ -80,6 +80,7 @@ crashlytics-build.properties
 !/Assets/import
 !/Assets/Small_things
 !/Assets/FertigeStreckenelemente
+!/Assets/Material
 
 .vscode/
 .vsconfig
