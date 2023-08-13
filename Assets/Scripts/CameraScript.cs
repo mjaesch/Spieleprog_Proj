@@ -4,101 +4,50 @@ using UnityEngine.UI;
 
 public class CameraScript : MonoBehaviour
 {
-    [SerializeField]private CinemachineVirtualCamera vCam;
-    [SerializeField]private CinemachineComposer composer;
-    [SerializeField]private float xMin = -1.5f;
-    [SerializeField]private float xMax = 1.5f;
-    [SerializeField]private float yMin = 1f;
-    [SerializeField]private float yMax = 3f;
-    [SerializeField]private float sensitivity = 1;
-    
-    [SerializeField]private Image crosshair;
-    
-    [SerializeField] private float crosshairMovementMultiplier = 20;
-    
-    private Vector3 initialPos;
-    private Vector3 newPos;
-    [SerializeField]private float maxCrosshairX = 1f;
-    [SerializeField]private float minCrosshairX = -1f;
-    [SerializeField]private float maxCrosshairY = 1f;
-    [SerializeField]private float minCrosshairY = -1f;
+    private CinemachineVirtualCamera vCam;
+    private CinemachineComposer composer;
+    private CinemachineTransposer transposer;
+    [SerializeField] private Rigidbody carRigidbody;
+
+    private bool cameraFacesBack;
 
     // Start is called before the first frame update
     void Start()
     {
         vCam = GetComponent<CinemachineVirtualCamera>();
         composer= vCam.GetCinemachineComponent<CinemachineComposer>();
-        //composer.m_TrackedObjectOffset.y = 0;
-       // composer.m_TrackedObjectOffset.x = 0;
-
-        initialPos = crosshair.rectTransform.position;
-        newPos = crosshair.rectTransform.position;
-
-        maxCrosshairX += initialPos.x;
-        minCrosshairX += initialPos.x;
-        maxCrosshairY += initialPos.y;
-        minCrosshairY += initialPos.y;
-
+        transposer = vCam.GetCinemachineComponent<CinemachineTransposer>();
+        cameraFacesBack = false;
     }
 
-    // Update is called once per frame
-    // TODO:
-    // runtime änderung des trackedobjectoffset - done
-    // get mouseInput -
-    // give it bounds
-    // give it a crosshair
-    // damping?
+    
     void Update()
     {
-        
-        /*
-        composer.m_TrackedObjectOffset.y += Input.GetAxis("Mouse Y") / 6;
-        if(composer.m_TrackedObjectOffset.y < yMin)
-        {
-            composer.m_TrackedObjectOffset.y = yMin;
+        Debug.Log(Vector3.Angle(carRigidbody.velocity, carRigidbody.transform.forward));
+        //Bedingungen player presses back + bewegung in richtung zurück, also speed größer als 1 und richtung zwischen 120 und 181 grad
+        //es ist besser wenn ich das zusammen mit car controller mache
+    }
+    /// <summary>
+    /// wird von CarController Aufgerufen wenn es einen vertical axis input unter 0 gibt!
+    /// 
+    /// Problem: wenn grappled wird, dann wird ständig gewechselt
+    /// check for grounded?
+    /// </summary>
+    public void CheckCameraBackward(bool isGrounded)
+    {
+        float angleOfMovement = Vector3.Angle(carRigidbody.velocity, carRigidbody.transform.forward);
+        if (isGrounded && carRigidbody.velocity.sqrMagnitude > 9 && (angleOfMovement>118f &&  angleOfMovement < 182f)){
+            transposer.m_FollowOffset.z = 4;
+            cameraFacesBack = true;
         }
-        if (composer.m_TrackedObjectOffset.y > yMax)
+        else
         {
-            composer.m_TrackedObjectOffset.y = yMax;
+            transposer.m_FollowOffset.z = -6;
+            cameraFacesBack = false;
         }
-
-        composer.m_TrackedObjectOffset.x += Input.GetAxis("Mouse X") / 6;
-        
-        if (composer.m_TrackedObjectOffset.x < xMin)
-        {
-            composer.m_TrackedObjectOffset.x = xMin;
-        }
-        if (composer.m_TrackedObjectOffset.x > xMax)
-        {
-            composer.m_TrackedObjectOffset.x = xMax;
-        }*/
-
-
-        //TODO: die bounds ändern
-        //newPos.x += composer.m_TrackedObjectOffset.x * crosshairMovementMultiplier;
-        //newPos.y += composer.m_TrackedObjectOffset.y * crosshairMovementMultiplier;
-        newPos.x += Input.GetAxis("Mouse X") * crosshairMovementMultiplier;
-        if( newPos.x > maxCrosshairX)
-        {
-            newPos.x = maxCrosshairX;
-        } else if (newPos.x < minCrosshairX)
-        {
-            newPos.x = minCrosshairX;
-        }
-        newPos.y += Input.GetAxis("Mouse Y") * crosshairMovementMultiplier;
-        if (newPos.y > maxCrosshairY)
-        {
-            newPos.y = maxCrosshairY;
-        }
-        else if (newPos.y < minCrosshairY)
-        {
-            newPos.y = minCrosshairY;
-        }
-        crosshair.rectTransform.position = newPos;
     }
 
-    public Vector3 getCrosshairOffset()
-    {
-        return newPos-initialPos;
+    public bool getCameraFacesBack() {
+        return cameraFacesBack;
     }
 }

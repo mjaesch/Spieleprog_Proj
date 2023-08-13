@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 using Cinemachine;
+using UnityEngine.UI;
 
 public class MoveAimTarget : MonoBehaviour
 {
     public Transform CarTransform;
 
     public CinemachineBrain Brain;
-    public RectTransform ReticleImage;
+    public RectTransform reticleTransform;
+    public Image reticleImage;
+    public CameraScript cameraScript;
 
     [Tooltip("How far to raycast to place the aim target")]
     public float AimDistance;
@@ -28,7 +31,7 @@ public class MoveAimTarget : MonoBehaviour
     [AxisStateProperty]
     public AxisState HorizontalAxis;
 
-
+    
     private void OnValidate()
     {
         VerticalAxis.Validate();
@@ -39,7 +42,7 @@ public class MoveAimTarget : MonoBehaviour
     private void Reset()
     {
         AimDistance = 200;
-        ReticleImage = null;
+        reticleTransform = null;
         CollideAgainst = 1;
         IgnoreTag = string.Empty;
         //hier noch hinkriegen das sich die kamera garnet bewegt
@@ -135,13 +138,21 @@ public class MoveAimTarget : MonoBehaviour
 
     void PlaceReticle(CinemachineBrain brain)
     {
-        if (brain == null || brain != Brain || ReticleImage == null || brain.OutputCamera == null)
+        if (brain == null || brain != Brain || reticleTransform == null || brain.OutputCamera == null)
             return;
+        if (cameraScript.getCameraFacesBack())
+        {
+            reticleImage.enabled = false;
+        } else
+        {
+            reticleImage.enabled = true;
+        }
         PlaceTarget(); // To eliminate judder
         CameraState state = brain.CurrentCameraState;
         var cam = brain.OutputCamera;
         var r = cam.WorldToScreenPoint(transform.position);
         var r2 = new Vector2(r.x - cam.pixelWidth * 0.5f, r.y - cam.pixelHeight * 0.5f);
-        ReticleImage.anchoredPosition = r2;
+        reticleTransform.anchoredPosition = r2;
+        
     }
 }
