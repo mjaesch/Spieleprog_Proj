@@ -81,6 +81,7 @@ crashlytics-build.properties
 !/Assets/Small_things
 !/Assets/FertigeStreckenelemente
 !/Assets/Material
+!/Assets/Shaders
 
 .vscode/
 .vsconfig
