@@ -22,6 +22,9 @@ public class GrapplingController : MonoBehaviour
     public float damper = 7f;
     public float massScale = 4.5f;
 
+    public LapManager lapManager;
+    public bool useLapManager = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,12 +34,16 @@ public class GrapplingController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (lapManager.carsActive == true || !useLapManager)
         {
-            StartGrapple();
-        } else if (Input.GetMouseButtonUp(0))
-        {
-            StopGrapple();
+            if (Input.GetMouseButtonDown(0))
+            {
+                StartGrapple();
+            }
+            else if (Input.GetMouseButtonUp(0))
+            {
+                StopGrapple();
+            }
         }
     }
 

@@ -14,7 +14,9 @@ public class LapManager : MonoBehaviour
     private float lapStartTime = 0f;
     private float lastLapTime = 0f;
     private bool raceStarted = false;
-
+    /// <summary>
+    /// use Read only!!!
+    /// </summary>
     public bool carsActive = false;
     public CheckpointTextAnimation checkpointTextAnimation;
 
