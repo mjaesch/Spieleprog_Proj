@@ -10,7 +10,22 @@ public class GameController : MonoBehaviour
     private Coroutine countdownCoroutine;
 
     private bool isRaceStarted = false;
-
+    /// <summary>
+    /// Quelle:https://gamedevbeginner.com/how-to-lock-hide-the-cursor-in-unity/#hide_cursor
+    /// </summary>
+    /// <param name="hasFocus"></param>
+    void OnApplicationFocus(bool hasFocus)
+    {
+        if (hasFocus)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Debug.Log("Application is focussed");
+        }
+        else
+        {
+            Debug.Log("Application lost focus");
+        }
+    }
     private void Start()
     {
         // Starte das Rennen nicht automatisch beim Spielbeginn

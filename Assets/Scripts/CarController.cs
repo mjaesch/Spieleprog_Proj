@@ -18,6 +18,8 @@ public enum ReverseState
 
 public class CarController : MonoBehaviour
 {
+    [SerializeField] private CameraScript camScript;
+
     //Display
     [SerializeField] private TMP_Text rpmText;
     [SerializeField] private TMP_Text gearText;
@@ -66,6 +68,9 @@ public class CarController : MonoBehaviour
     //Check if the Car is on its Roof
     [SerializeField] private Transform carTransform;
     [SerializeField] private float kineticSpeed;
+    private BoxCollider carCollider;
+    private int currentlyColliding = 0;
+    
 
     //Center of Mass
     private Rigidbody carRigidBody;
@@ -74,7 +79,9 @@ public class CarController : MonoBehaviour
 
 
     public LapManager lapManager;
+    public bool useLapManager = true; 
     private Vector3 startPosition;
+    
 
     private void Start()
     {
@@ -82,6 +89,7 @@ public class CarController : MonoBehaviour
         carRigidBody = GetComponent<Rigidbody>();
         carRigidBody.centerOfMass = new Vector3(carRigidBody.centerOfMass.x, carRigidBody.centerOfMass.y + CenterOfMassYOffset, carRigidBody.centerOfMass.z + CenterOfMassZOffset);
         startPosition = transform.position;
+        carCollider = GetComponent<BoxCollider>();
     }
 
     /// <summary>
@@ -126,6 +134,11 @@ public class CarController : MonoBehaviour
 
     }
 
+    private void OnCollisionStay(Collision collision)
+    {
+        CheckStuckOnRoof();
+    }
+
     private void FixedUpdate()
     {
         kineticSpeed = carRigidBody.velocity.magnitude;
@@ -136,9 +149,7 @@ public class CarController : MonoBehaviour
         HandleMovement();
         HandleSteering();
         UpdateWheels();
-        CheckStuckOnRoof();
-
-
+        
     }
     /// <summary>
     /// uses Diameter of the wheel collider to calc kmh and also the movement in each frame for kinetic speed
@@ -161,13 +172,20 @@ public class CarController : MonoBehaviour
 
     private void GetInput()
     {
-        if (lapManager.carsActive == true)
+        if (lapManager.carsActive == true || !useLapManager)
         {
             // Steering Input
             horizontalInput = Input.GetAxis("Horizontal");
 
             // Acceleration Input
             verticalInput = Input.GetAxis("Vertical");
+            if(frontLeftWheelCollider.isGrounded&& frontRightWheelCollider.isGrounded)
+            {
+                camScript.CheckCameraBackward(true);
+            } else
+            {
+                camScript.CheckCameraBackward(false);
+            }
             if (gearState != GearState.Changing)
             {
                 clutch = Input.GetKey(KeyCode.LeftShift) ? 0 : Mathf.Lerp(clutch, 1, Time.fixedDeltaTime);

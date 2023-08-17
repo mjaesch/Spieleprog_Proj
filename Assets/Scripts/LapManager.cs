@@ -20,6 +20,8 @@ public class LapManager : MonoBehaviour
 
     public TMP_Text countdownText;
 
+    [Tooltip("2 for double speed, 0.5 for half speed")]
+    public float CountdownSpeed = 1;
 
 
     private void Start()
@@ -132,12 +134,12 @@ public class LapManager : MonoBehaviour
     while (count > 0)
     {
         countdownText.text = count.ToString();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1f/CountdownSpeed);
         count--;
     }
 
     countdownText.text = "Go!";
-    yield return new WaitForSeconds(1f);
+    yield return new WaitForSeconds(1f/ CountdownSpeed);
     countdownText.text = "";
 
     // Starte das Rennen hier oder führe andere Aktionen aus, die du vor dem Start ausführen möchtest
