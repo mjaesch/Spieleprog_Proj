@@ -162,8 +162,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7338136826778250313}
-  m_LocalRotation: {x: 0.1589194, y: 0.12371396, z: -0.02007604, w: 0.9793041}
-  m_LocalPosition: {x: 2.44281, y: 0.6039429, z: -0.6845398}
+  m_LocalRotation: {x: 0.16017997, y: -0.0000032224882, z: -0.000055451812, w: 0.98708785}
+  m_LocalPosition: {x: -36.900543, y: -0.9755249, z: -43.299927}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -280,8 +280,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9137243153714132621}
-  m_LocalRotation: {x: 0.1589194, y: 0.12371396, z: -0.02007604, w: 0.9793041}
-  m_LocalPosition: {x: 2.44281, y: 0.6039429, z: -0.6845398}
+  m_LocalRotation: {x: 0.1589187, y: 0.12371337, z: -0.02007585, w: 0.97930425}
+  m_LocalPosition: {x: 2.44281, y: 0.6039429, z: -0.6845703}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -827,8 +827,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3085786974127529965}
     - target: {fileID: 8966583312249531102, guid: f9e57b1af1767bc499936900fc05e04b, type: 3}
+      propertyPath: lapManager
+      value: 
+      objectReference: {fileID: 9137243153230672053}
+    - target: {fileID: 8966583312249531102, guid: f9e57b1af1767bc499936900fc05e04b, type: 3}
+      propertyPath: useLapManager
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8966583312249531102, guid: f9e57b1af1767bc499936900fc05e04b, type: 3}
       propertyPath: maxGrapDistance
-      value: 500
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 8966583312361190185, guid: f9e57b1af1767bc499936900fc05e04b, type: 3}
       propertyPath: m_SuspensionDistance
