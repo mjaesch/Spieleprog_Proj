@@ -82,6 +82,7 @@ crashlytics-build.properties
 !/Assets/FertigeStreckenelemente
 !/Assets/Material
 !/Assets/Shaders
+!/Assets/Geist
 
 .vscode/
 .vsconfig
