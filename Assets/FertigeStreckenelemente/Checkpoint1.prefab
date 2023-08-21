@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 6690723750544914874}
   - component: {fileID: 6690723750544914873}
   - component: {fileID: 6690723750544914872}
-  - component: {fileID: 6690723750544914855}
+  - component: {fileID: 1612192573456085306}
   m_Layer: 0
   m_Name: Plane (2)
   m_TagString: Checkpoint
@@ -185,8 +185,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6690723750544914855
-MeshCollider:
+--- !u!65 &1612192573456085306
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -195,10 +195,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 2
+  m_Size: {x: 10.000004, y: 13.71, z: 10.000002}
+  m_Center: {x: 0.000045776367, y: 0, z: -0.00024414062}
 --- !u!1001 &5170407590772022460
 PrefabInstance:
   m_ObjectHideFlags: 0
