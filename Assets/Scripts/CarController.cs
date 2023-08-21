@@ -81,7 +81,8 @@ public class CarController : MonoBehaviour
     public LapManager lapManager;
     public bool useLapManager = true; 
     private Vector3 startPosition;
-    
+    private Vector3 lastCheckpoint;
+    private Vector3 lastCheckpointRotation;
 
     private void Start()
     {
@@ -89,6 +90,7 @@ public class CarController : MonoBehaviour
         carRigidBody = GetComponent<Rigidbody>();
         carRigidBody.centerOfMass = new Vector3(carRigidBody.centerOfMass.x, carRigidBody.centerOfMass.y + CenterOfMassYOffset, carRigidBody.centerOfMass.z + CenterOfMassZOffset);
         startPosition = transform.position;
+        lastCheckpoint = transform.position; // Setze den letzten Checkpoint auf die Startposition
         carCollider = GetComponent<BoxCollider>();
     }
 
@@ -353,6 +355,17 @@ public class CarController : MonoBehaviour
         //lenkung auf 0
         currentSteerAngle = 0;
         RPM = 1000;
-        
     }
-}
+    public void ResetToLastCheckpoint(){
+        // Setze das Auto auf den letzten Checkpoint zurück
+        transform.position = lastCheckpoint;
+        transform.rotation = Quaternion.Euler(lastCheckpointRotation); // Setze die Rotation auf (0, 0, 0)
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+    }
+     public void SetLastCheckpoint(Vector3 checkpoint, Vector3 checkpointRotation)
+    {
+        lastCheckpoint = checkpoint;
+        lastCheckpointRotation = checkpointRotation;
+    }
+    }
