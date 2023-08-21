@@ -18,6 +18,9 @@ public class LapManager : MonoBehaviour
     private Vector3 currentCheckpoint;
     private Vector3 currentCheckpointRotation;
 
+    /// <summary>
+    /// use Read only!!!
+    /// </summary>
     public bool carsActive = false;
     public CheckpointTextAnimation checkpointTextAnimation;
 
