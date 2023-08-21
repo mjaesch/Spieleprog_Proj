@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2024,6 +2024,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 189633041586534549, guid: a0a1f3cb3f2c2a645aedc1bd7c177512, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 189633041816375676, guid: a0a1f3cb3f2c2a645aedc1bd7c177512, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 189633042030528090, guid: a0a1f3cb3f2c2a645aedc1bd7c177512, type: 3}
       propertyPath: CenterOfMassYOffset
       value: -0.8
@@ -2088,6 +2096,26 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
+    - target: {fileID: 4070726291209837185, guid: a0a1f3cb3f2c2a645aedc1bd7c177512, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: efa225e3575aaaf468e771d02264b62d, type: 2}
+    - target: {fileID: 4070726291209837185, guid: a0a1f3cb3f2c2a645aedc1bd7c177512, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: efa225e3575aaaf468e771d02264b62d, type: 2}
+    - target: {fileID: 4070726291209837185, guid: a0a1f3cb3f2c2a645aedc1bd7c177512, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: efa225e3575aaaf468e771d02264b62d, type: 2}
+    - target: {fileID: 4070726291209837185, guid: a0a1f3cb3f2c2a645aedc1bd7c177512, type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: efa225e3575aaaf468e771d02264b62d, type: 2}
+    - target: {fileID: 4070726291209837185, guid: a0a1f3cb3f2c2a645aedc1bd7c177512, type: 3}
+      propertyPath: m_Materials.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: efa225e3575aaaf468e771d02264b62d, type: 2}
     - target: {fileID: 9137243153230672053, guid: a0a1f3cb3f2c2a645aedc1bd7c177512, type: 3}
       propertyPath: carController
       value: 
@@ -5751,7 +5779,7 @@ GameObject:
   - component: {fileID: 1017228675}
   - component: {fileID: 1017228674}
   - component: {fileID: 1017228673}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Start
   m_TagString: Checkpoint
   m_Icon: {fileID: 0}
@@ -6203,7 +6231,7 @@ Terrain:
   m_GameObject: {fileID: 1101274902}
   m_Enabled: 1
   serializedVersion: 6
-  m_TerrainData: {fileID: 15600000, guid: c16eeafc195e1dd4ea5e34ea85c2f10a, type: 2}
+  m_TerrainData: {fileID: 0}
   m_TreeDistance: 5000
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5

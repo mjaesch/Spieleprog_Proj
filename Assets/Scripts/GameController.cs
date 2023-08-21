@@ -52,7 +52,7 @@ public class GameController : MonoBehaviour
                 isRaceStarted = true;
             }
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             // Wenn die Escape-Taste gedrückt wird, lade die aktuelle Szene neu
              StopAllCoroutines();

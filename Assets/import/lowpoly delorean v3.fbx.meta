@@ -3,7 +3,32 @@ guid: dd9992f278d985a44b1a213e26c7f262
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Black
+    second: {fileID: 2100000, guid: 4125355770e355b4f817977a7a9068fd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Boost
+    second: {fileID: 2100000, guid: efa225e3575aaaf468e771d02264b62d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Drak Grey
+    second: {fileID: 2100000, guid: 4dd273e21b6638741b361fa5c6ce04e8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Front light
+    second: {fileID: 2100000, guid: 64a77a7a46439b34b94ef00d66d1266c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Grey
+    second: {fileID: 2100000, guid: 69ef36abf5e388d4c8628bf8c87bd936, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
