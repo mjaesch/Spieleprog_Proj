@@ -14,6 +14,10 @@ public class LapManager : MonoBehaviour
     private float lapStartTime = 0f;
     private float lastLapTime = 0f;
     private bool raceStarted = false;
+    public CarController carController;
+    private Vector3 currentCheckpoint;
+    private Vector3 currentCheckpointRotation;
+
     /// <summary>
     /// use Read only!!!
     /// </summary>
@@ -43,6 +47,11 @@ public class LapManager : MonoBehaviour
         {
             if (other.transform == checkpoints[currentCheckpointIndex])
             {
+                currentCheckpoint = transform.position;
+                currentCheckpointRotation = transform.rotation.eulerAngles;
+                carController.SetLastCheckpoint(currentCheckpoint, currentCheckpointRotation);
+                Debug.Log("Checkpoint " + currentCheckpointIndex + " triggered");
+                Debug.Log(transform);
                 if (currentCheckpointIndex == 0)
                 {
                     // Start the race and lap timing when the first checkpoint is triggered
@@ -64,7 +73,7 @@ public class LapManager : MonoBehaviour
             else
             {
                 // Incorrect checkpoint, reset the lap
-                RestartLap();
+                //RestartLap();
             }
         }
     }

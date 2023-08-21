@@ -23,14 +23,14 @@ public class CameraScript : MonoBehaviour
     
     void Update()
     {
-        Debug.Log(Vector3.Angle(carRigidbody.velocity, carRigidbody.transform.forward));
-        //Bedingungen player presses back + bewegung in richtung zurück, also speed größer als 1 und richtung zwischen 120 und 181 grad
+        //Debug.Log(Vector3.Angle(carRigidbody.velocity, carRigidbody.transform.forward));
+        //Bedingungen player presses back + bewegung in richtung zurï¿½ck, also speed grï¿½ï¿½er als 1 und richtung zwischen 120 und 181 grad
         //es ist besser wenn ich das zusammen mit car controller mache
     }
     /// <summary>
     /// wird von CarController Aufgerufen wenn es einen vertical axis input unter 0 gibt!
     /// 
-    /// Problem: wenn grappled wird, dann wird ständig gewechselt
+    /// Problem: wenn grappled wird, dann wird stï¿½ndig gewechselt
     /// check for grounded?
     /// </summary>
     public void CheckCameraBackward(bool isGrounded)

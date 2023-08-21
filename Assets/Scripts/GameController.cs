@@ -39,16 +39,16 @@ public class GameController : MonoBehaviour
             if (isRaceStarted)
             {
                 // Wenn das Rennen bereits gestartet wurde, starte das Rennen erneut
-                lapManager.ResetRace();
-                carController.ResetCar();
-                lapManager.carsActive = false;
-                StartCoroutine(lapManager.StartCountdown());
+                //lapManager.ResetRace();
+                carController.ResetToLastCheckpoint();
+                //lapManager.carsActive = false;
+                //StartCoroutine(lapManager.StartCountdown());
 
             }
             else
             {
                 // Wenn das Rennen noch nicht gestartet wurde, starte es jetzt
-                lapManager.StartRace();
+                //lapManager.StartRace();
                 isRaceStarted = true;
             }
         }

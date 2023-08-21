@@ -1448,6 +1448,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.000000002756157
       objectReference: {fileID: 0}
+    - target: {fileID: 9137243153230672053, guid: a0a1f3cb3f2c2a645aedc1bd7c177512, type: 3}
+      propertyPath: checkpoints.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 9137243153714132623, guid: a0a1f3cb3f2c2a645aedc1bd7c177512, type: 3}
       propertyPath: m_LocalPosition.x
       value: -36.899994
@@ -2320,8 +2324,12 @@ PrefabInstance:
       value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6689414992715525118, guid: 7c0e94e7f36d7384199ff38798c38a74, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6689414992715525118, guid: 7c0e94e7f36d7384199ff38798c38a74, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 384.87
+      value: 381.4
       objectReference: {fileID: 0}
     - target: {fileID: 6689414992715525118, guid: 7c0e94e7f36d7384199ff38798c38a74, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2329,7 +2337,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6689414992715525118, guid: 7c0e94e7f36d7384199ff38798c38a74, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 301.08
+      value: 300.2
       objectReference: {fileID: 0}
     - target: {fileID: 6689414992715525118, guid: 7c0e94e7f36d7384199ff38798c38a74, type: 3}
       propertyPath: m_LocalRotation.w
