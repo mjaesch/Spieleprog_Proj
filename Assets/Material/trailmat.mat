@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: trailmat
-  m_Shader: {fileID: 4800000, guid: 908da9587d44451458a8723d5f0ac1d3, type: 3}
+  m_Shader: {fileID: 4800000, guid: c87b6a2948ec2ac4e9da852040714211, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
   - _ALPHAPREMULTIPLY_ON
@@ -76,6 +76,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 4.0833592, g: 6.087918, b: 14.180393, a: 0.39607844}
+    - _Color: {r: 16.333437, g: 24.648642, b: 56.721573, a: 0.39607844}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
