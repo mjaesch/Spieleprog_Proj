@@ -24,7 +24,8 @@ public class GhostPlayer : MonoBehaviour
 
         if(ghost.recordOrPlay == Ghost.RecordOrPlay.Play)
         {
-
+            GetIndex();
+            SetTransform();
         }
     }
 

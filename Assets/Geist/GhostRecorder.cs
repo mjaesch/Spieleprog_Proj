@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// Quelle: https://www.youtube.com/watch?v=c5G2jv7YCxM
 /// </summary>
-public class NewBehaviourScript : MonoBehaviour
+public class GhostRecorder : MonoBehaviour
 {
     public Ghost ghost;
     private float timer;
