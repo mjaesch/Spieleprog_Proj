@@ -15,8 +15,10 @@ public class LapManager : MonoBehaviour
     private float lastLapTime = 0f;
     private bool raceStarted = false;
     public CarController carController;
+    public CheckpointHUD checkpointHUD;
     private Vector3 currentCheckpoint;
     private Vector3 currentCheckpointRotation;
+    
 
     /// <summary>
     /// use Read only!!!
@@ -32,7 +34,7 @@ public class LapManager : MonoBehaviour
 
     private void Start()
     {
-         countdownText.text = "Get ready!";
+        countdownText.text = "Get ready!";
         StartCoroutine(StartCountdown());
         checkpointTextAnimation = GetComponentInChildren<CheckpointTextAnimation>();
         lapStartTime = Time.time;
@@ -50,8 +52,8 @@ public class LapManager : MonoBehaviour
                 currentCheckpoint = transform.position;
                 currentCheckpointRotation = transform.rotation.eulerAngles;
                 carController.SetLastCheckpoint(currentCheckpoint, currentCheckpointRotation);
-                Debug.Log("Checkpoint " + currentCheckpointIndex + " triggered");
-                Debug.Log(transform);
+                checkpointHUD.SetCurrentCheckpoint(currentCheckpointIndex);
+
                 if (currentCheckpointIndex == 0)
                 {
                     // Start the race and lap timing when the first checkpoint is triggered
