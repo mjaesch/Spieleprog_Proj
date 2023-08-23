@@ -28,13 +28,13 @@ public class Ghost : ScriptableObject
     public void SaveToJSON()
     {
         string ghostJson = JsonUtility.ToJson(this);
-        string path = Application.persistentDataPath + "/GhostData.json";
+        string path = "Assets/Geist/GhostData.json";
         File.WriteAllText(path, ghostJson);
     }
 
     public void LoadFromJSON()
     {
-        string ghostJson = File.ReadAllText(Application.persistentDataPath + "/GhostData.json");
+        string ghostJson = File.ReadAllText("Assets/Geist/GhostData.json");
         JsonUtility.FromJsonOverwrite(ghostJson, this);
         this.ghostState = GhostState.LoadNPlayJSON;
     }
