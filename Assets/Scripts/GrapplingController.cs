@@ -25,6 +25,9 @@ public class GrapplingController : MonoBehaviour
     public LapManager lapManager;
     public bool useLapManager = true;
 
+    [Header("Sounds")]
+    public SFXScript sfxScript;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,6 +69,8 @@ public class GrapplingController : MonoBehaviour
        
         if (Physics.Raycast(transform.position, (AimTarget.position - transform.position), out hit, maxGrapDistance, whatIsGrappleable))
         {
+            sfxScript.PlayBoom();
+
             grapplePoint = hit.point;
             joint = car.gameObject.AddComponent<SpringJoint>();
             joint.autoConfigureConnectedAnchor = false;
@@ -81,6 +86,9 @@ public class GrapplingController : MonoBehaviour
             joint.massScale = massScale;
 
             lineRenderer.positionCount = 2;
+        } else
+        {
+            sfxScript.PlayWrong();
         }
     }
 
