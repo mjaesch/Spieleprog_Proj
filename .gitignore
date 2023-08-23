@@ -83,6 +83,7 @@ crashlytics-build.properties
 !/Assets/Material
 !/Assets/Shaders
 !/Assets/Geist
+!/Assets/Fonts
 
 .vscode/
 .vsconfig

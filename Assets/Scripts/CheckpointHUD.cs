@@ -21,7 +21,7 @@ public class CheckpointHUD : MonoBehaviour
     void Update()
     {
         // Aktualisiere die UI-Textkomponente mit der Position des aktuellen Checkpoints
-        checkpointText.text = "Current Checkpoint: " + currentCheckpoint + " /9";
+        checkpointText.text = "Checkpoint: " + currentCheckpoint + " / 9";
    
     }
        public void SetCurrentCheckpoint(int checkpoint)

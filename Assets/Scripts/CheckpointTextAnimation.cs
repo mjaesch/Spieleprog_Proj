@@ -13,17 +13,19 @@ public class CheckpointTextAnimation : MonoBehaviour
 
     private void Start()
     {
-        checkpointText = gameObject.GetComponent<TMP_Text>();
+        //checkpointText = gameObject.GetComponent<TMP_Text>();
+        
+    }
+
+    public void AnimateCheckpointText(TMP_Text checkpointTextAkutell)
+    {
+        StartCoroutine(AnimateTextCoroutine(checkpointTextAkutell));
+    }
+
+    private IEnumerator AnimateTextCoroutine(TMP_Text checkpointTextAkutell)
+    {
+        checkpointText = checkpointTextAkutell;
         originalScale = checkpointText.transform.localScale;
-    }
-
-    public void AnimateCheckpointText()
-    {
-        StartCoroutine(AnimateTextCoroutine());
-    }
-
-    private IEnumerator AnimateTextCoroutine()
-    {
         float timer = 0f;
         Vector3 targetScale = originalScale * scaleMultiplier;
 

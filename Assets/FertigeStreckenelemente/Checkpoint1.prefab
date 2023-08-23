@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6678051316260852702}
   - component: {fileID: 6667654650971166886}
   - component: {fileID: 6690723750944043436}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Checkpoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +267,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8391222552659086748, guid: 85ad730c7b2db9c4cab950f1895c9751, type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -5477749408508380018, guid: 85ad730c7b2db9c4cab950f1895c9751, type: 3}
       propertyPath: m_LocalPosition.y
@@ -275,7 +275,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4929331831021317398, guid: 85ad730c7b2db9c4cab950f1895c9751, type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 85ad730c7b2db9c4cab950f1895c9751, type: 3}
       propertyPath: m_Name
@@ -283,11 +283,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 85ad730c7b2db9c4cab950f1895c9751, type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5075668792814064704, guid: 85ad730c7b2db9c4cab950f1895c9751, type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85ad730c7b2db9c4cab950f1895c9751, type: 3}

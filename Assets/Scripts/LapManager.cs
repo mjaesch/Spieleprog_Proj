@@ -36,7 +36,6 @@ public class LapManager : MonoBehaviour
     {
         countdownText.text = "Get ready!";
         StartCoroutine(StartCountdown());
-        checkpointTextAnimation = GetComponentInChildren<CheckpointTextAnimation>();
         lapStartTime = Time.time;
         UpdateLapTimeTextCenter();
         UpdateLastLapTimeTextRight();
@@ -56,6 +55,7 @@ public class LapManager : MonoBehaviour
 
                 if (currentCheckpointIndex == 0)
                 {
+                    checkpointTextAnimation.AnimateCheckpointText(lapTimeTextCenter);
                     // Start the race and lap timing when the first checkpoint is triggered
                     Debug.Log("Erster Punkt erreicht");
                     StartRace();
@@ -63,11 +63,13 @@ public class LapManager : MonoBehaviour
 
                 if (currentCheckpointIndex == checkpoints.Length - 1)
                 {
-                    // Finish the lap when the last checkpoint is triggered
+                    checkpointTextAnimation.AnimateCheckpointText(lapTimeTextCenter);
+                   // Finish the lap when the last checkpoint is triggered
                     FinishLap();
                 }
                 else
                 {
+                    checkpointTextAnimation.AnimateCheckpointText(lapTimeTextCenter);
                     // Move to the next checkpoint
                     currentCheckpointIndex++;
                 }
