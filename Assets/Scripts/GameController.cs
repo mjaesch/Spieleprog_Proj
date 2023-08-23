@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Common;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,7 @@ public class GameController : MonoBehaviour
     public CarController carController;
     public LapManager lapManager;
     private Coroutine countdownCoroutine;
+    
 
     private bool isRaceStarted = false;
     /// <summary>
@@ -16,7 +18,7 @@ public class GameController : MonoBehaviour
     /// <param name="hasFocus"></param>
     void OnApplicationFocus(bool hasFocus)
     {
-        if (hasFocus)
+        if (hasFocus && !lapManager.gameWon)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Debug.Log("Application is focussed");
@@ -59,5 +61,11 @@ public class GameController : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
            
         }
+        if(lapManager.gameWon){
+            Cursor.lockState = CursorLockMode.None;
+        }else{
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
+   
 }

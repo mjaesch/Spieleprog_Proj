@@ -144,13 +144,15 @@ public class CarController : MonoBehaviour
     private void FixedUpdate()
     {
         kineticSpeed = carRigidBody.velocity.magnitude;
-
+        
         CalcWheelKMH();
         DisplayValues();
         GetInput();
         HandleMovement();
         HandleSteering();
         UpdateWheels();
+        
+       
         
     }
     /// <summary>
@@ -174,7 +176,7 @@ public class CarController : MonoBehaviour
 
     private void GetInput()
     {
-        if (lapManager.carsActive == true || !useLapManager)
+        if ((lapManager.carsActive == true || !useLapManager) && !lapManager.gameWon)
         {
             // Steering Input
             horizontalInput = Input.GetAxis("Horizontal");

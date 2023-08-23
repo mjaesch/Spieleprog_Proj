@@ -14,8 +14,10 @@ public class LapManager : MonoBehaviour
     private float lapStartTime = 0f;
     private float lastLapTime = 0f;
     private bool raceStarted = false;
+    public bool gameWon = false;
     public CarController carController;
     public CheckpointHUD checkpointHUD;
+    public GameObject winCanvas; 
     private Vector3 currentCheckpoint;
     private Vector3 currentCheckpointRotation;
     
@@ -59,13 +61,17 @@ public class LapManager : MonoBehaviour
                     // Start the race and lap timing when the first checkpoint is triggered
                     Debug.Log("Erster Punkt erreicht");
                     StartRace();
+                   
+                    
                 }
 
                 if (currentCheckpointIndex == checkpoints.Length - 1)
                 {
                     checkpointTextAnimation.AnimateCheckpointText(lapTimeTextCenter);
                    // Finish the lap when the last checkpoint is triggered
-                    FinishLap();
+                     FinishLap();
+                    ShowWinScreen();
+                    
                 }
                 else
                 {
@@ -91,6 +97,7 @@ public class LapManager : MonoBehaviour
     private void FinishLap()
     {
         raceStarted = false;
+        gameWon = true;
         lapCount++;
         float lapTime = Time.time - lapStartTime;
 
@@ -102,7 +109,6 @@ public class LapManager : MonoBehaviour
             UpdateLastLapTimeTextRight();
         }
         currentCheckpointIndex = 0;
-        StartNewLap();
     }
 
     private void StartNewLap()
@@ -171,4 +177,9 @@ public void ResetRace()
     // Rufe die Methode StartNewLap() auf, um den Timer erneut zu starten
     StartNewLap();
 }
+ // Aufruf dieser Methode, wenn das Spiel gewonnen wurde
+    public void ShowWinScreen()
+    {
+        winCanvas.SetActive(true); // Aktiviere den Canvas, um ihn anzuzeigen
+    }
 }
