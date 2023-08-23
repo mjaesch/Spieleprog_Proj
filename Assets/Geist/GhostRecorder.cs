@@ -12,11 +12,14 @@ public class GhostRecorder : MonoBehaviour
 
     private void Awake()
     {
-        if(ghost.recordOrPlay == Ghost.RecordOrPlay.Record)
+        if(ghost.ghostState == Ghost.GhostState.Record)
         {
             ghost.ResetData();
             timeValue = 0;
             timer = 0;
+        } else if(ghost.ghostState == Ghost.GhostState.SaveToJSON)
+        {
+            ghost.SaveToJSON();
         }
     }
 
@@ -26,7 +29,7 @@ public class GhostRecorder : MonoBehaviour
         timer += Time.unscaledDeltaTime;
         timeValue += Time.unscaledDeltaTime;
 
-        if(ghost.recordOrPlay == Ghost.RecordOrPlay.Record && timer >= 1 / ghost.recordFrequency)
+        if(ghost.ghostState == Ghost.GhostState.Record && timer >= 1 / ghost.recordFrequency)
         {
             ghost.timeStamp.Add(timeValue);
             ghost.position.Add(this.transform.position);

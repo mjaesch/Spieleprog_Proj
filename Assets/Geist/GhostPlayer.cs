@@ -12,17 +12,22 @@ public class GhostPlayer : MonoBehaviour
     private int index2;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         timeValue = 0;
+        if(ghost.ghostState == Ghost.GhostState.LoadNPlayJSON)
+        {
+            ghost.LoadFromJSON();
+        }
     }
+
 
     // Update is called once per frame
     void Update()
     {
         timeValue += Time.unscaledDeltaTime;
 
-        if(ghost.recordOrPlay == Ghost.RecordOrPlay.Play)
+        if(ghost.ghostState == Ghost.GhostState.Play || ghost.ghostState == Ghost.GhostState.LoadNPlayJSON)
         {
             GetIndex();
             SetTransform();
