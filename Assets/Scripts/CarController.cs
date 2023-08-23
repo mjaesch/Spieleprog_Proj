@@ -171,7 +171,7 @@ public class CarController : MonoBehaviour
         int gearForText = currentGear;
         gearText.text = gearForText.ToString();
 
-        speedText.text = Mathf.RoundToInt(wheelkmh) + "KMH";
+        speedText.text = Mathf.RoundToInt(kineticSpeed) + "KMH";
     }
 
     private void GetInput()
