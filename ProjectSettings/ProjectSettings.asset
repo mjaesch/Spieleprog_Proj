@@ -156,7 +156,7 @@ PlayerSettings:
   androidMaxAspectRatio: 16.9
   applicationIdentifier:
     Android: com.SpinMotion.RacingStarterKit
-    Standalone: unity.SpinMotion.RacingStarterKit
+    Standalone: com.DefaultCompany.MaxiundTIm
     Tizen: com.Company.ProductName
     iPhone: com.SpinMotion.RacingStarterKit
     tvOS: com.Company.ProductName

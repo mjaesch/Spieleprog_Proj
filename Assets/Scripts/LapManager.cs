@@ -15,6 +15,7 @@ public class LapManager : MonoBehaviour
     private float lastLapTime = 0f;
     private bool raceStarted = false;
     public bool gameWon = false;
+    public TMP_Text winText;
     public CarController carController;
     public CheckpointHUD checkpointHUD;
     public GameObject winCanvas; 
@@ -71,6 +72,7 @@ public class LapManager : MonoBehaviour
                    // Finish the lap when the last checkpoint is triggered
                      FinishLap();
                     ShowWinScreen();
+                    winText.text = "GGs mein Lieber!";
                     
                 }
                 else
