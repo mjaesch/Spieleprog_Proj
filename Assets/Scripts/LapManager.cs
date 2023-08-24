@@ -14,11 +14,11 @@ public class LapManager : MonoBehaviour
     private float lapStartTime = 0f;
     private float lastLapTime = 0f;
     private bool raceStarted = false;
-    public bool gameWon = false;
+    public bool openMenu = false;
     public TMP_Text winText;
     public CarController carController;
     public CheckpointHUD checkpointHUD;
-    public GameObject winCanvas; 
+    public GameObject menuCanvas; 
     private Vector3 currentCheckpoint;
     private Vector3 currentCheckpointRotation;
     
@@ -99,7 +99,7 @@ public class LapManager : MonoBehaviour
     private void FinishLap()
     {
         raceStarted = false;
-        gameWon = true;
+        openMenu = true;
         lapCount++;
         float lapTime = Time.time - lapStartTime;
 
@@ -182,6 +182,10 @@ public void ResetRace()
  // Aufruf dieser Methode, wenn das Spiel gewonnen wurde
     public void ShowWinScreen()
     {
-        winCanvas.SetActive(true); // Aktiviere den Canvas, um ihn anzuzeigen
+        menuCanvas.SetActive(true); // Aktiviere den Canvas, um ihn anzuzeigen
+    }
+    public void HideWinScreen()
+    {
+        menuCanvas.SetActive(false); // Deaktiviere den Canvas, um ihn zu verstecken
     }
 }

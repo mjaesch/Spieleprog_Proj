@@ -18,7 +18,7 @@ public class GameController : MonoBehaviour
     /// <param name="hasFocus"></param>
     void OnApplicationFocus(bool hasFocus)
     {
-        if (hasFocus && !lapManager.gameWon)
+        if (hasFocus && !lapManager.openMenu)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Debug.Log("Application is focussed");
@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour
     }
     private void Start()
     {
-        // Starte das Rennen nicht automatisch beim Spielbeginn
+        //Wichtig Starte das Rennen nicht automatisch beim Spielbeginn
         isRaceStarted = false;
     }
 
@@ -39,9 +39,7 @@ public class GameController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             if (isRaceStarted)
-            {
-                // Wenn das Rennen bereits gestartet wurde, starte das Rennen erneut
-                //lapManager.ResetRace();
+            {      
                 carController.ResetToLastCheckpoint();
                 //lapManager.carsActive = false;
                 //StartCoroutine(lapManager.StartCountdown());
@@ -50,22 +48,26 @@ public class GameController : MonoBehaviour
             else
             {
                 // Wenn das Rennen noch nicht gestartet wurde, starte es jetzt
-                //lapManager.StartRace();
                 isRaceStarted = true;
             }
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            // Wenn die Escape-Taste gedrückt wird, lade die aktuelle Szene neu
+            // Wenn die Leertaste gedrückt wird, lade die aktuelle Szene neu
              StopAllCoroutines();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         
         }
-        if(Input.GetKeyDown(KeyCode.Escape)){
+        if(Input.GetKeyDown(KeyCode.Escape) && !lapManager.openMenu){
+            lapManager.openMenu = true;
             lapManager.ShowWinScreen();
             lapManager.winText.text = "";
+        }else if(Input.GetKeyDown(KeyCode.Escape) && lapManager.openMenu){
+            lapManager.HideWinScreen();
+            lapManager.openMenu = false;
         }
-        if(lapManager.gameWon){
+
+        if(lapManager.openMenu){
             Cursor.lockState = CursorLockMode.None;
         }else{
             Cursor.lockState = CursorLockMode.Locked;
