@@ -2,6 +2,10 @@
 using Cinemachine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Quelle: Cinemachine Dual Target Sample!
+/// </summary>
+
 public class MoveAimTarget : MonoBehaviour
 {
     public Transform CarTransform;
