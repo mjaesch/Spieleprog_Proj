@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44675237, g: 0.4966138, b: 0.57492375, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -445,7 +445,7 @@ GameObject:
   - component: {fileID: 37881816}
   - component: {fileID: 37881815}
   m_Layer: 5
-  m_Name: WinnerCanvas
+  m_Name: MenuCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4029,6 +4029,10 @@ PrefabInstance:
       objectReference: {fileID: 256493778}
     - target: {fileID: 9137243153230672053, guid: a0a1f3cb3f2c2a645aedc1bd7c177512, type: 3}
       propertyPath: winCanvas
+      value: 
+      objectReference: {fileID: 37881814}
+    - target: {fileID: 9137243153230672053, guid: a0a1f3cb3f2c2a645aedc1bd7c177512, type: 3}
+      propertyPath: menuCanvas
       value: 
       objectReference: {fileID: 37881814}
     - target: {fileID: 9137243153230672053, guid: a0a1f3cb3f2c2a645aedc1bd7c177512, type: 3}
@@ -8539,7 +8543,7 @@ GameObject:
   - component: {fileID: 958178719}
   - component: {fileID: 958178720}
   m_Layer: 0
-  m_Name: Winner
+  m_Name: Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

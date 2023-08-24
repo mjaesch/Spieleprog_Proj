@@ -59,8 +59,8 @@ public class LapManager : MonoBehaviour
                 if (currentCheckpointIndex == 0)
                 {
                     checkpointTextAnimation.AnimateCheckpointText(lapTimeTextCenter);
-                    // Start the race and lap timing when the first checkpoint is triggered
-                    Debug.Log("Erster Punkt erreicht");
+            
+                   
                     StartRace();
                    
                     
@@ -69,7 +69,7 @@ public class LapManager : MonoBehaviour
                 if (currentCheckpointIndex == checkpoints.Length - 1)
                 {
                     checkpointTextAnimation.AnimateCheckpointText(lapTimeTextCenter);
-                   // Finish the lap when the last checkpoint is triggered
+                   
                      FinishLap();
                     ShowWinScreen();
                     winText.text = "GGs mein Lieber!";
@@ -78,14 +78,13 @@ public class LapManager : MonoBehaviour
                 else
                 {
                     checkpointTextAnimation.AnimateCheckpointText(lapTimeTextCenter);
-                    // Move to the next checkpoint
+                    
                     currentCheckpointIndex++;
                 }
             }
             else
             {
-                // Incorrect checkpoint, reset the lap
-                //RestartLap();
+                Debug.Log("Wrong checkpoint");
             }
         }
     }
@@ -106,7 +105,6 @@ public class LapManager : MonoBehaviour
        
         if (lastLapTime == 0f || lapTime < lastLapTime)
         {
-            // Only update lastLapTime if it's the first lap or faster than the previous lap
             lastLapTime = lapTime;
             UpdateLastLapTimeTextRight();
         }
@@ -152,7 +150,7 @@ public class LapManager : MonoBehaviour
     }
     public IEnumerator StartCountdown()
 {
-    int count = 3; // Start bei 3 (oder einem anderen Wert deiner Wahl)
+    int count = 3; // Start bei 3
 
     while (count > 0)
     {
@@ -165,7 +163,6 @@ public class LapManager : MonoBehaviour
     yield return new WaitForSeconds(1f/ CountdownSpeed);
     countdownText.text = "";
 
-    // Starte das Rennen hier oder führe andere Aktionen aus, die du vor dem Start ausführen möchtest
     carsActive = true;
 }
 public void ResetRace()
