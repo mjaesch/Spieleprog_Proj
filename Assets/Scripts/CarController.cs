@@ -176,7 +176,7 @@ public class CarController : MonoBehaviour
 
     private void GetInput()
     {
-        if ((lapManager.carsActive == true || !useLapManager) && !lapManager.gameWon)
+        if ((lapManager.carsActive == true || !useLapManager) && !lapManager.openMenu)
         {
             // Steering Input
             horizontalInput = Input.GetAxis("Horizontal");

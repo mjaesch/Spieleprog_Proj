@@ -37,7 +37,7 @@ public class GrapplingController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((lapManager.carsActive == true || !useLapManager) && !lapManager.gameWon)
+        if ((lapManager.carsActive == true || !useLapManager) && !lapManager.openMenu)
         {
             if (Input.GetMouseButtonDown(0))
             {

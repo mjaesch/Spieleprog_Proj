@@ -22,6 +22,7 @@ public class CheckpointTextAnimation : MonoBehaviour
         StartCoroutine(AnimateTextCoroutine(checkpointTextAkutell));
     }
 
+    //klene animation wenn checkpoint erreicht wird
     private IEnumerator AnimateTextCoroutine(TMP_Text checkpointTextAkutell)
     {
         checkpointText = checkpointTextAkutell;

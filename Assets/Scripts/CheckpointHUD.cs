@@ -6,7 +6,7 @@ using TMPro;
 public class CheckpointHUD : MonoBehaviour
 {
     public CarController carController;
-    public TMP_Text checkpointText; // Ziehe die UI-Textkomponente hierhin im Inspector
+    public TMP_Text checkpointText; 
     private int currentCheckpoint;
     private int totalCheckpoints;
 
@@ -14,7 +14,7 @@ public class CheckpointHUD : MonoBehaviour
     void Start()
     {
         // Initialisiere die UI-Textkomponente
-        checkpointText.text = "Current Checkpoint: N/A";
+        checkpointText.text = "Checkpoint: / 9";
     }
 
     // Update is called once per frame
