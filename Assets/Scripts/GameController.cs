@@ -59,7 +59,11 @@ public class GameController : MonoBehaviour
             // Wenn die Escape-Taste gedrückt wird, lade die aktuelle Szene neu
              StopAllCoroutines();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-           
+        
+        }
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            lapManager.ShowWinScreen();
+            lapManager.winText.text = "";
         }
         if(lapManager.gameWon){
             Cursor.lockState = CursorLockMode.None;
